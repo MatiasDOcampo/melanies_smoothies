@@ -1,35 +1,3 @@
-version: 1
-
-artifacts:
-  setup_script: setup.sql
-  readme: README.md
-
-default_environment:
-  manifests:
-    - objects.manifest.yaml
-
-  environment_variables:
-    - name: EXTERNAL_STAGE
-      description: "External stage used to store uploaded files"
-      type: string
-
-  privileges:
-    - privilege: USAGE
-      object_type: DATABASE
-    - privilege: USAGE
-      object_type: SCHEMA
-    - privilege: SELECT
-      object_type: TABLE
-    - privilege: INSERT
-      object_type: TABLE
-    - privilege: USAGE
-      object_type: STAGE
-
-  parameters:
-    - name: MAX_FILE_SIZE_MB
-      type: number
-      default: 50
-      description: "Maximum file size in MB for uploads"
-
-runtime:
-  language: sql
+# requirements.txt
+snowflake-snowpark-python
+streamlit
